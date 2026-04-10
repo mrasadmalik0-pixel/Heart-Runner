@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Runner - Home</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: radial-gradient(circle, #1a1a40, #050510);
+            height: 100vh; display: flex;
+            flex-direction: column; align-items: center;
+            justify-content: center; font-family: 'Segoe UI', sans-serif;
+            color: white; overflow: hidden;
+        }
+
+        .container { text-align: center; z-index: 10; }
+
+        h1 {
+            font-size: 50px; margin-bottom: 5px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px #00d2ff;
+            color: #fff;
+        }
+
+        p { font-size: 18px; opacity: 0.7; margin-bottom: 40px; letter-spacing: 1px; }
+
+        .play-btn {
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            border: none; padding: 18px 60px;
+            color: white; font-size: 22px; font-weight: bold;
+            border-radius: 50px; cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
+            transition: 0.3s; text-decoration: none;
+            display: inline-block;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 210, 255, 0.5);
+        }
+
+        .creator-tag {
+            margin-top: 40px;
+            font-size: 16px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #00d2ff;
+            font-weight: 500;
+        }
+
+        /* Floating Stars Background */
+        .bg-star {
+            position: absolute; color: white;
+            font-size: 10px; animation: float 4s infinite linear;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(110vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>HEART RUNNER</h1>
+        <p>Master Your Survival Skills</p>
+        
+        <a href="game.html" class="play-btn">START GAME</a>
+        
+        <div class="creator-tag">
+            Developed by: Malik Asad 🚀
+        </div>
+    </div>
+
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('bg-star');
+            star.innerHTML = '★';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(star);
+            setTimeout(() => { star.remove(); }, 4000);
+        }
+        setInterval(createStar, 200);
+    </script>
+</body>
+</html>
